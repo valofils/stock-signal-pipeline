@@ -2,10 +2,8 @@ name: Daily Stock Signal Pipeline
 
 on:
   schedule:
-    # Runs at 21:00 UTC (4pm EST) Mon-Fri after US market close
     - cron: '0 21 * * 1-5'
   workflow_dispatch:
-    # Allow manual trigger from GitHub UI
 
 jobs:
   run-pipeline:
@@ -33,7 +31,7 @@ jobs:
 
       - name: Commit and push report
         run: |
-          git config --global user.name  "github-actions[bot]"
+          git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add results/reports/ data/processed/features_latest.parquet data/raw/ohlcv_latest.parquet
           git diff --staged --quiet || git commit -m "chore: daily signal report $(date +'%Y-%m-%d')"
