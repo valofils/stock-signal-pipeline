@@ -120,3 +120,19 @@ if __name__ == "__main__":
     print(features_df.shape)
     print(features_df.columns.tolist())
     print(features_df[["Date", "Ticker", "Close", "rsi_14", "macd", "target"]].head(10))
+
+
+def add_ticker_encoding(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Add a numeric encoding of the Ticker column as a model feature.
+
+    Args:
+        df: Feature DataFrame with a Ticker column.
+
+    Returns:
+        DataFrame with added 'ticker_encoded' column.
+    """
+    ticker_map = {ticker: i for i, ticker in enumerate(sorted(df["Ticker"].unique()))}
+    df["ticker_encoded"] = df["Ticker"].map(ticker_map)
+    print(f"Ticker encoding: {ticker_map}")
+    return df
