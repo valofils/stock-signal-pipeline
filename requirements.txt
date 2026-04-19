@@ -124,7 +124,7 @@ six==1.17.0
 soupsieve==2.8.3
 sseclient-py==1.9.0
 stack-data==0.6.3
--e git+https://github.com/valofils/stock-signal-pipeline@4c5c1feaa20838165c5eeda03c721239a3569e93#egg=stock_signal
+-e git+https://github.com/valofils/stock-signal-pipeline@3f8cde62c3545947bf0132fab701773e9fa7efa6#egg=stock_signal
 terminado==0.18.1
 threadpoolctl==3.6.0
 tinycss2==1.4.0
